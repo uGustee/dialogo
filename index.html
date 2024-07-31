@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="logo.png">
+    <link rel="stylesheet" href="agrinho.css">
+    <title>Agrinho</title>
+</head>
+<body>
+    <div id="dialog-container">
+        <div id="dialog-box">
+            <p id="dialog-text">Oi, cumpadi! O que cê manda de bom hoje?</p>
+            <div id="options">
+                <button onclick="changeQuestion('answer1')">Queria tirar umas dúvida, cê pode me dar uma mão?</button>
+                <button onclick="changeQuestion('answer2')">Opa, só tô de passagem mesmo.</button>
+                <button onclick="changeQuestion('answer3')">Hoje tem jogo do Timão!</button>
+            </div>
+        </div>
+    </div>
+    <script src="scripts.js"></script>
+    <script>
+function changeQuestion(answer) {
+    const dialogText = document.getElementById('dialog-text');
+    const options = document.getElementById('options');
+
+    // Clear existing buttons
+    options.innerHTML = '';
+
+    if (answer === 'answer1') {
+        dialogText.textContent = 'Uai, claro! O que cê quer saber?';
+        options.innerHTML = `
+            <button onclick="changeQuestion('trabalho')">E aí, como é que tá a vida aqui no interior?</button>
+            <button onclick="changeQuestion('descanso')">Qual é o seu ganha pão?</button>
+            <button onclick="changeQuestion('lazer')">Você se mudaria para a cidade se tivesse a oportunidade?</button>
+            <button onclick="changeQuestion('lazer')">Quais são as dificuldades do dia a dia?</button>
+        `;
+    } else if (answer === 'answer2') {
+        dialogText.textContent = 'Beleza então, o dia tá lindo hoje, aproveita!';
+        options.innerHTML = `
+
+        `;  
+    } else if (answer === 'answer3') {
+        dialogText.textContent = 'Vai Corinthians!';
+        options.innerHTML = `
+
+        `;
+    } else {
+        dialogText.textContent = 'Olá! Como você está?';
+        options.innerHTML = `
+            <button onclick="changeQuestion('bem')">Bem</button>
+            <button onclick="changeQuestion('mal')">Mal</button>
+            <button onclick="changeQuestion('indiferente')">Indiferente</button>
+        `;
+    }
+}
+    </script>
+</body>
+</html>
